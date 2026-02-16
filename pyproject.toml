@@ -1,0 +1,32 @@
+[project]
+name = "dj-shwary"
+version = "0.1.0"
+description = "Intégration Django officielle pour le SDK de paiement Shwary."
+readme = "README.md"
+authors = [
+    { name = "Josué Luis Panzu", email = "josuepanzu8@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "django>=4.2",
+    "shwary-python>=2.0.2",
+]
+license = { text = "MIT" }
+keywords = ["shwary", "django", "payments", "africa", "fintech"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dj_shwary"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src" = ""
+
+[dependency-groups]
+dev = [
+    "pytest-django>=4.7.0",
+    "pytest>=8.0.0",
+    "respx>=0.21.0",
+]
