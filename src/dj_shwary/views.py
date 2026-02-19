@@ -43,7 +43,7 @@ class ShwaryWebhookView(View):
             # On utilise le service pour lire la vérité depuis l'API.
             service = ShwaryService()
             api_response = service.client.get_transaction(shwary_id)
-            real_status = api_response.status
+            real_status = api_response.status.lower()
 
         except Exception as e:
             logger.error(f"Impossible de vérifier le statut auprès de l'API Shwary pour {shwary_id}: {e}")

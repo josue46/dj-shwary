@@ -1,12 +1,27 @@
 [project]
 name = "dj-shwary"
-version = "0.1.0"
+version = "0.1.2"
 description = "Intégration Django officielle pour le SDK de paiement Shwary."
 readme = "README.md"
 authors = [
     { name = "Josué Luis Panzu", email = "josuepanzu8@gmail.com" }
 ]
 requires-python = ">=3.11"
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
 dependencies = [
     "django>=4.2",
     "shwary-python>=2.0.2",

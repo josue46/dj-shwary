@@ -19,12 +19,12 @@ class ShwaryService:
     - Gère les erreurs de manière robuste pour éviter les incohérences dans la base de données et fournir des feedbacks clairs à l'utilisateur ou au développeur.
     """
 
-    def __init__(self):
+    def __init__(self, client=None):
         self.merchant_id, self.merchant_key, self.is_sandbox, self.timeout = (
             get_shwary_config()
         )
 
-        self.client = Shwary(
+        self.client = client or Shwary(
             merchant_id=self.merchant_id,
             merchant_key=self.merchant_key,
             is_sandbox=self.is_sandbox,

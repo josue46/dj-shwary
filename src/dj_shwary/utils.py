@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.contrib.sites.models import Site
 from django.core.exceptions import ImproperlyConfigured
 from shwary import Shwary, ShwaryAsync
 
@@ -71,6 +70,8 @@ def get_webhook_absolute_url(relative_path: str) -> str:
 
     # Autrement on utilise le framework Site de Django
     if "django.contrib.sites" in settings.INSTALLED_APPS:
+        from django.contrib.sites.models import Site
+
         try:
             domain = Site.objects.get_current().domain
             protocol = "http" if settings.DEBUG else "https"
