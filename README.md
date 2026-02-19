@@ -2,6 +2,7 @@
 [![Python versions](https://img.shields.io/pypi/pyversions/dj-shwary.svg)](https://pypi.org/project/dj-shwary/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io)](https://pypi.org)
+[![Tests](https://github.com)](https://github.com)
 
 # dj-shwary
 
