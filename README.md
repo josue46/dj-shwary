@@ -1,8 +1,8 @@
 [![PyPI version](https://img.shields.io/pypi/v/dj-shwary.svg)](https://pypi.org/project/dj-shwary/)
 [![Python versions](https://img.shields.io/pypi/pyversions/dj-shwary.svg)](https://pypi.org/project/dj-shwary/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Status](https://img.shields.io)](https://pypi.org)
-[![Tests](https://github.com)](https://github.com)
+[![Status](https://img.shields.io/badge/status-active-success.svg)](https://pypi.org/project/dj-shwary/)
+[![Tests](https://github.com/josue46/dj-shwary/actions/workflows/tests.yml/badge.svg)](https://github.com/josue46/dj-shwary/actions)
 
 # dj-shwary
 
