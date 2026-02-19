@@ -1,6 +1,6 @@
 [project]
 name = "dj-shwary"
-version = "0.1.3"
+version = "0.1.4"
 description = "Intégration Django officielle pour le SDK de paiement Shwary."
 readme = "README.md"
 authors = [
@@ -24,7 +24,7 @@ classifiers = [
 
 dependencies = [
     "django>=4.2",
-    "shwary-python>=2.0.2",
+    "shwary-python>=2.0.4",
 ]
 license = { text = "MIT" }
 keywords = ["shwary", "django", "payments", "africa", "fintech"]

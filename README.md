@@ -10,7 +10,7 @@ dj-shwary est le wrapper Django ultime pour intégrer les paiements Shwary (RDC,
 
 Contrairement à une intégration basique, ce package gère tout le cycle de vie des transactions, du premier clic au "Truth Check" final via webhook.
 
-Résumé des changements v0.1.2
+Résumé des changements v0.1.4
 1. Correction Critique (Bug AppRegistryNotReady) :
     Suppression des imports de modèles Django au niveau global dans __init__.py
     pour permettre l'initialisation correcte de Django.

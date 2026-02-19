@@ -57,7 +57,7 @@ wheels = [
 
 [[package]]
 name = "dj-shwary"
-version = "0.1.1"
+version = "0.1.4"
 source = { editable = "." }
 dependencies = [
     { name = "django", version = "5.2.11", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12'" },
@@ -75,7 +75,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">=4.2" },
-    { name = "shwary-python", specifier = ">=2.0.2" },
+    { name = "shwary-python", specifier = ">=2.0.4" },
 ]
 
 [package.metadata.requires-dev]
@@ -364,7 +364,7 @@ wheels = [
 
 [[package]]
 name = "shwary-python"
-version = "2.0.2"
+version = "2.0.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -372,9 +372,9 @@ dependencies = [
     { name = "pydantic" },
     { name = "tenacity" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/25/ea/d8d75a68d6ed73ddf7337e154bf2712963f71a0a202d1cdaf2b7e2c34acc/shwary_python-2.0.2.tar.gz", hash = "sha256:48a8dd3660e8467e5ac518659408f94d4670e1e510026ed93bca4372d5d75f8f", size = 21416, upload-time = "2026-02-09T16:17:00.596Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4a/91/76432e119cf6ee6522188ff406f5e392277dd5a027b49dd2e7dfdffc25bc/shwary_python-2.0.4.tar.gz", hash = "sha256:022e5db968703d319ae73deab6063d3e3ccb4fdc5d2a25a1960909147efdf187", size = 21383, upload-time = "2026-02-19T23:23:17.653Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/21/bd/b096aa07d728c3fd08d0996a3116428870dd5dc28400737d2a6cd1f87bd1/shwary_python-2.0.2-py3-none-any.whl", hash = "sha256:42bfe176e61803f2cdf305c950bb39abe5cda54b2e9c56bbf64ce17ccf5de442", size = 30924, upload-time = "2026-02-09T16:17:02.799Z" },
+    { url = "https://files.pythonhosted.org/packages/fd/84/456418c3b8c23f312eef6299d6c471d8655f0a591166386a4ddc7b7dfd28/shwary_python-2.0.4-py3-none-any.whl", hash = "sha256:f0a196be8930effe63e2bf0a1a534d84e7b4a6ee67e3a7790190a5b311a4dd92", size = 30890, upload-time = "2026-02-19T23:23:15.783Z" },
 ]
 
 [[package]]
