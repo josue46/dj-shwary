@@ -7,6 +7,8 @@ authors = [
     { name = "Josué Luis Panzu", email = "josuepanzu8@gmail.com" }
 ]
 requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["shwary", "django", "payments", "africa", "fintech"]
 
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -33,9 +35,6 @@ Homepage = "https://github.com/josue46/dj-shwary"
 Documentation = "https://github.com/josue46/dj-shwary#readme"
 Repository = "https://github.com/josue46/dj-shwary.git"
 Issues = "https://github.com/josue46/dj-shwary/issues"
-
-license = { text = "MIT" }
-keywords = ["shwary", "django", "payments", "africa", "fintech"]
 
 [build-system]
 requires = ["hatchling"]
