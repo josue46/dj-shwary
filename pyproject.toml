@@ -1,6 +1,6 @@
 [project]
 name = "dj-shwary"
-version = "0.1.5"
+version = "0.1.6"
 description = "Intégration Django officielle pour le SDK de paiement Shwary."
 readme = "README.md"
 authors = [
