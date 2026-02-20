@@ -10,21 +10,6 @@ dj-shwary est le wrapper Django ultime pour intégrer les paiements Shwary (RDC,
 
 Contrairement à une intégration basique, ce package gère tout le cycle de vie des transactions, du premier clic au "Truth Check" final via webhook.
 
-Résumé des changements v0.1.4
-1. Correction Critique (Bug AppRegistryNotReady) :
-    Suppression des imports de modèles Django au niveau global dans __init__.py
-    pour permettre l'initialisation correcte de Django.
-2. Qualité & Tests (CI Ready) :
-    Mise en place d'une suite de tests complète avec pytest-django.
-    Ajout de 5 tests unitaires couvrant le cycle de vie des transactions (Success, API Failure, Webhook Security, Signals).
-    Configuration du fichier pytest.ini et des réglages de test (tests/settings.py).
-3. Métadonnées PyPI :
-    Ajout des Classifiers officiels (Django 4.2+, Python 3.11+, Production/Stable).
-    Correction des liens de badges dans le README.md.
-4. Extensibilité :
-    Finalisation des Signaux Django (payment_success, payment_failed) pour permettre aux développeurs d'automatiser leurs actions métier.
-
-
 ## Fonctionnalités Clés
 
 Pourquoi utiliser ce wrapper plutôt que de coder l'API à la main ?
@@ -194,3 +179,17 @@ Si vous n'utilisez pas SITE_BASE_URL, le wrapper tente d'utiliser le framework s
 5. Puis-je utiliser Shwary en mode test ?
 
 Oui. Assurez-vous que dans le dictionnaire SHWARY dans le settings, la clé SANDBOX soit True dans vos réglages. Le wrapper utilisera alors les endpoints de test de Shwary et marquera les transactions comme étant en mode sandbox dans l'admin.
+
+Résumé des changements:
+
+1. Correction: Modification de `shwary_id` pour autoriser `null=True` afin de prendre en charge les transactions en attente simultanées (logique SQL NULL != NULL).
+
+2. Correction: Résolution d'une erreur de sérialisation JSON pour les objets `datetime` dans `raw_response` grâce à l'utilisation de `mode="json"` de Pydantic.
+
+3. Securité : Renforcement de la vérification par référence dans `ShwaryWebhookView` pour empêcher l'usurpation d'état.
+
+4. Fiabilité : Retour d'une erreur 404 dans le webhook si la transaction est introuvable afin de déclencher de nouvelles tentatives du fournisseur (gestion des conditions de concurrence).
+
+5. Tests : Ajout d'une suite de tests pytest couvrant les ID NULL simultanés, les contraintes d'unicité et la sérialisation JSON.
+
+6. Docs : Mise à jour du fichier README avec des badges, un guide de dépannage.
