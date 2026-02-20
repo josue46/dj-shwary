@@ -28,7 +28,7 @@ def test_webhook_success_updates_transaction(client):
         mock_instance.client.get_transaction.return_value = mock_api_res
 
         # 3. Action : On simule l'envoi du Webhook par Shwary
-        url = reverse("dj_shwary:webhook")
+        url = reverse("dj_shwary:shwary-webhook")
         payload = {"id": "SHW-999", "status": "completed"}
         
         response = client.post(
@@ -64,7 +64,7 @@ def test_webhook_security_mismatch(client):
 
         # Le "hacker" envoie un webhook prétendant que c'est payé
         payload = {"id": "SHW-FAKE", "status": "completed"}
-        client.post(reverse("dj_shwary:webhook"), data=json.dumps(payload), content_type="application/json")
+        client.post(reverse("dj_shwary:shwary-webhook"), data=json.dumps(payload), content_type="application/json")
 
         txn.refresh_from_db()
         # On vérifie que la transaction est FAILED car on a cru l'API

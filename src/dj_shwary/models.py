@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
+from django.core.serializers.json import DjangoJSONEncoder
 
 
 class ShwaryTransaction(models.Model):
@@ -22,7 +23,8 @@ class ShwaryTransaction(models.Model):
         _("ID Shwary"),
         max_length=100,
         unique=True,
-        db_index=True,
+        null=True,
+        blank=True,
         help_text=_("L'identifiant unique retourné par l'API Shwary"),
     )
     amount = models.DecimalField(_("Montant"), max_digits=12, decimal_places=2)
@@ -48,6 +50,7 @@ class ShwaryTransaction(models.Model):
     content_object = GenericForeignKey("content_type", "object_id")
     raw_response = models.JSONField(
         _("Réponse API brute"),
+        encoder = DjangoJSONEncoder,
         default=dict,
         blank=True,
         help_text=_("Stocke la réponse complète de Shwary pour débogage."),
@@ -91,7 +94,7 @@ class ShwaryTransaction(models.Model):
 
             if response.status != self.status:
                 self.status = response.status
-                self.raw_response = response.model_dump()
+                self.raw_response = response.model_dump(mode="json")
                 self.save(update_fields=("status", "raw_response", "updated_at"))
              
             return True

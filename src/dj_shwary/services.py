@@ -72,7 +72,7 @@ class ShwaryService:
 
         if not callback_url:
             # Si callback_url n'est pas fourni, on génère une par défaut
-            relative_url = reverse("dj_shwary:webhook")
+            relative_url = reverse("dj_shwary:shwary-webhook")
             callback_url = get_webhook_absolute_url(relative_url)
 
         try:
@@ -87,8 +87,8 @@ class ShwaryService:
             # Mise à jour succès (On a l'ID Shwary !)
             txn.shwary_id = response.id
             txn.status = response.status
-            txn.raw_response = response.model_dump()
-            txn.error_message = None  # Clean up
+            txn.raw_response = response.model_dump(mode="json")
+            txn.error_message = None
             txn.save(
                 update_fields=(
                     "shwary_id",
@@ -129,7 +129,7 @@ class ShwaryService:
             # Mise à jour si changement
             if txn.status != api_response.status:
                 txn.status = api_response.status
-                txn.raw_response = api_response.model_dump()
+                txn.raw_response = api_response.model_dump(mode="json")
                 txn.save(update_fields=("status", "raw_response", "updated_at"))
 
             return api_response.status

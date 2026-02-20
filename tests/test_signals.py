@@ -34,7 +34,7 @@ def test_webhook_triggers_payment_success_signal(client):
         mock_instance.client.get_transaction.return_value = mock_api_res
 
         # 3. Simulation du Webhook
-        url = reverse("dj_shwary:webhook")
+        url = reverse("dj_shwary:shwary-webhook")
         payload = {"id": "SHW-SIG-123", "status": "completed"}
         
         client.post(

@@ -41,13 +41,13 @@ class ShwaryWebhookView(View):
         # --- COUCHE DE SÉCURITÉ : VERIFY BY REFERENCE ---
         try:
             # On utilise le service pour lire la vérité depuis l'API.
-            service = ShwaryService()
-            api_response = service.client.get_transaction(shwary_id)
+            shwary = ShwaryService()
+            api_response = shwary.client.get_transaction(shwary_id)
             real_status = api_response.status.lower()
 
         except Exception as e:
             logger.error(f"Impossible de vérifier le statut auprès de l'API Shwary pour {shwary_id}: {e}")
-            # Très important : Si l'API Shwary est down, on refuse le webhook (500).
+            # Si l'API Shwary est down, on refuse le webhook (500).
             return HttpResponse("Verification failed, try again later", status=500)
 
         if real_status != webhook_status:
@@ -59,7 +59,7 @@ class ShwaryWebhookView(View):
 
         # Le statut et le payload de confiance sont ceux de l'API
         trusted_status = real_status
-        payload = api_response.model_dump()
+        payload = api_response.model_dump(mode="json")
 
         # --- MISE À JOUR ATOMIQUE EN BASE ---
         try:
@@ -71,8 +71,8 @@ class ShwaryWebhookView(View):
                 )
 
                 if not txn:
-                    logger.warning(f"Transaction {shwary_id} introuvable localement.")
-                    return HttpResponse("Transaction not found, ignored", status=200)
+                    logger.warning(f"Transaction {shwary_id} introuvable localement (Webhook arrivé trop vite).")
+                    return HttpResponse("Transaction not found yet", status=404)
 
                 previous_status = txn.status
 
