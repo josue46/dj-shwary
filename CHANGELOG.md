@@ -5,7 +5,7 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.4] - 2026-02-20
+## [0.1.5] - 2026-02-20
 
 ### Ajouté
 - **Modèle de Transaction** : Système robuste utilisant `GenericForeignKey` pour lier les paiements à n'importe quel modèle Django (Commandes, Dons, etc.).
@@ -27,4 +27,4 @@ et ce projet adhère au [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ---
 
-[0.1.4]: https://github.com/josue46/dj-shwary/releases/tag/v0.1.4
+[0.1.5]: https://github.com/josue46/dj-shwary/releases/tag/v0.1.5
